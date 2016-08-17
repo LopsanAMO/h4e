@@ -1,0 +1,84 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0')
+    title Eqcheck
+    // CSS
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='/stylesheets/materialize.css', type='text/css', rel='stylesheet', media='screen,projection')
+  body.grey.lighten-4
+    nav.indigo.lighten-1(role='navigation')
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='#')
+          img#brand-img.responsive-img(src='/images/eqcheck.png', alt='Logo')
+        ul.right.hide-on-med-and-down
+          li
+            button.btn.modal-trigger.pink.accent-3(data-target='modal1') Buscar
+        ul#nav-mobile.side-nav
+          li
+            a(href='#') Link
+        a.button-collapse(href='#', data-activates='nav-mobile')
+          i.material-icons menu
+    h1.center-align Nombre del local
+    .row
+      .col.s12
+        a(href='#')
+          .card.large.hoverable
+            .card-image
+              iframe(width='600', height='450', frameborder='0', style='width:100%', src='https://www.google.com/maps/embed/v1/place?q=19.4262762,-99.15867&key=AIzaSyBGfnCYTJtbJ0KUzQlvoLvlO3LnFso-UmI', allowfullscreen='')
+            .card-content
+              p
+                i.material-icons room
+                |  Dirección del lugar...
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis beatae vel suscipit minus deleniti reiciendis accusantium velit ad eveniet, numquam ducimus quidem nesciunt assumenda nemo. Ipsa iure mollitia laboriosam facilis.
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga sit quo voluptates minima sint deserunt laboriosam atque aliquam possimus totam est vel doloribus perspiciatis consequuntur veniam, fugiat deleniti adipisci alias!
+          .card-panel.large.hoverable
+            ul.collection
+              li.collection-item.avatar
+                img.circle(src='/images/yuna.jpg', alt='')
+                form(action='comenta')
+                  input#comentario(type='text', placeholder='Añade un comentario...')
+                  button#sendComment.btn.waves-effect.waves-light.pink.accent-3(type='submit') Publicar
+              li.collection-item.avatar
+                img.circle(src='/images/yuna.jpg', alt='')
+                span.title El mejor local c:
+                p
+                  | Muy Accesible
+                  br
+                  |                  De verdad lo recomiendo, es demasiado accesible para cualquier tipo de personas :)
+                a.secondary-content(href='#!')
+                  i.material-icons grade
+              li.collection-item.avatar
+                img.circle(src='/images/yuna.jpg', alt='')
+                span.title El mejor local c:
+                p
+                  | Muy Accesible
+                  br
+                  |                  De verdad lo recomiendo, es demasiado accesible para cualquier tipo de personas :)
+                a.secondary-content(href='#!')
+                  i.material-icons grade
+              li.collection-item.avatar
+                img.circle(src='/images/yuna.jpg', alt='')
+                span.title El mejor local c:
+                p
+                  | Muy Accesible
+                  br
+                  |                  De verdad lo recomiendo, es demasiado accesible para cualquier tipo de personas :)
+                a.secondary-content(href='#!')
+                  i.material-icons grade
+    // Scripts
+    script.
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+      $(".button-collapse").sideNav();
+      });
+      // Initialize collapse button
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      //$('.collapsible').collapsible();
+    script(src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(src='/js/materialize.js')
+    script(src='/js/init.js')

@@ -1,0 +1,115 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0')
+    title Equ
+    // CSS
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='/stylesheets/materialize.css', type='text/css', rel='stylesheet', media='screen,projection')
+    title Marker Animations
+    style.
+      #map {
+      height: 500%;
+      }
+  body
+   nav.indigo(role='navigation')
+    .nav-wrapper.container
+      a#logo-container.brand-logo(href='#') Equality
+      ul.right.hide-on-med-and-down
+        li
+          a(href='#') Link
+      ul#nav-mobile.side-nav
+        li
+          a(href='#') Link
+      a.button-collapse(href='#', data-activates='nav-mobile')
+        i.material-icons menu
+    h1.center-align 
+    #map
+    for cosas in todo
+      table
+        tr
+          th 
+          th
+        tr 
+
+          
+          td   
+            .row
+
+              .col.s4
+                .card.large.hoverable
+                  .card-image
+                    img(img src="/images/sample-1.jpg")
+                    span.card-title=cosas.name
+                  .card-content
+                    p
+                      i.material-icons room
+                      p=cosas.vicinity
+                  .card-action
+                    .row
+                      .col.s6
+                        i.material-icons visibility
+                        i.material-icons visibility
+                        i.material-icons visibility
+                        i.material-icons.right-align verified_user
+                      .col.s6 
+                        form(method="post",name="formu",action="hacer")
+                          
+                          a(onclick="enviar_formulario()").btn-floating.red
+                            i.large.material-icons mode_edit
+          td   
+          
+            
+    script.
+      // The following example creates a marker in Stockholm, Sweden using a DROP
+      // animation. Clicking on the marker will toggle the animation between a BOUNCE
+      // animation and no animation.
+      var hola = document.getElementById('cos');
+      console.log(hola);
+      var marker;
+      function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: {lat: 19.428766, lng: -99.159105}
+      });
+      marker = new google.maps.Marker({
+      map: map,
+      draggable: false,
+      animation: google.maps.Animation.DROP,
+      position: {lat: 19.4287656, lng: -99.159105}
+      });
+      
+      var la=  !{JSON.stringify(todo)};
+      var obj = [];
+      for(i=0;i<la.length;i++){
+        obj.push({lat: la[i].lat,lng: la[i].lng});
+      }
+      for(i=0;i<obj.length;i++){
+        console.log(obj[i].lat);
+      }
+      var wea = [{lat: 20.428766, lng: -99.159105 }]
+      for(i=0;i<obj.length;i++){
+        markery = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: {lat:obj[i].lng,lng:obj[i].lat}
+        });
+      }
+      
+      
+      console.log("LA WEA" + marker.position);
+      console.log("LA WEA 2" + markery.position);
+      console.log("la wea" + marker.getPosition());
+      marker.addListener('click', toggleBounce);
+      }
+      function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+      } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+      }
+    script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDkNr-v2Ricwr_U6vOJeFWLBreZLnKzM_A&signed_in=true&callback=initMap')
